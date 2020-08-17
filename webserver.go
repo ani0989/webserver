@@ -47,7 +47,7 @@ func (s *Client) PostReq(todo *Todo) error {
 }
 
 // GetReq ... Makes the get req
-func (s *Client) GetReq(todo *Todo) error {
+func (s *Client) GetReq() error {
 	fmt.Println(baseURL)
 	fmt.Println("Get Request")
 	req, err := http.NewRequest("GET", baseURL, nil)
