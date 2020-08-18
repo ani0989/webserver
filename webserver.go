@@ -49,13 +49,14 @@ func (s *Client) PostReq(todo *Todo) error {
 func (s *Client) GetReq() error {
 	fmt.Println(baseURL)
 	fmt.Println("Get Request")
-	req, err := http.NewRequest("GET", baseURL, nil)
+
+	res, err := http.Get("http://127.0.0.1:5000/companies")
 	if err != nil {
-		return err
+		fmt.Println(err)
 	}
-	respBody, err := s.doRequest(req)
-	fmt.Println("Get Request Done")
-	fmt.Println(respBody)
+	data, _ := ioutil.ReadAll(res.Body)
+	res.Body.Close()
+	fmt.Printf("%s", data)
 	return err
 }
 
