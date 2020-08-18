@@ -43,7 +43,6 @@ func (s *Client) PostReq(todo *Todo) error {
 	}
 	_, err = s.doRequest(req)
 	return err
-
 }
 
 // GetReq ... Makes the get req
@@ -54,7 +53,9 @@ func (s *Client) GetReq() error {
 	if err != nil {
 		return err
 	}
-	_, err = s.doRequest(req)
+	respBody, err := s.doRequest(req)
+	fmt.Println("Get Request Done")
+	fmt.Println(respBody)
 	return err
 }
 
